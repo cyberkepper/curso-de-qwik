@@ -15,8 +15,12 @@ export const PokemonImage = component$(({ pokemonId, width, height, backImage = 
 
     useTask$(({ track }) => {
         track(() => pokemonId);
-        imageLoaded.value = false;
-    });
+        if (!imageLoaded.value) {
+            imageLoaded.value = true
+        } else {
+            imageLoaded.value = false
+        }
+    }); 
 
 
     let imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
