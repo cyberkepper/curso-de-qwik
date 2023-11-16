@@ -28,3 +28,10 @@ Serialización de funciones
 
 Y más
 
+---
+
+1) yarn create qwik@latest
+2) yarn install 
+3) yarn start
+4) en el tsconfig.json agregar "noImplicitAny": false, 
+5) yarn qwik add tailwind
