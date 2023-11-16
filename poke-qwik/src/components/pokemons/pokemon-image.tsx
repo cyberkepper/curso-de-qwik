@@ -1,5 +1,4 @@
 import { component$, useSignal, useTask$ } from '@builder.io/qwik';
-import { is } from '../../entry.preview';
 
 interface PokemonImageProps {
     pokemonId: number;
@@ -36,7 +35,7 @@ export const PokemonImage = component$(({ pokemonId, width, height, backImage = 
 
             }, 'transition-all']} onLoad$={() => {
                 imageLoaded.value = true
-            }} style={{ width: { width }, height: { height } }} width={width || 200} height={height || 200} src={imageUrl} alt="pokemon" />
+            }} width={width || 200} height={height || 200} src={imageUrl} alt="pokemon" />
 
         </div>
     );
