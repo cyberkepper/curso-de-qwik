@@ -1,18 +1,19 @@
 import { component$ } from "@builder.io/qwik";
 import { useServerTimeLoader } from "~/routes/layout";
 import styles from "./footer.module.css";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   const serverTime = useServerTimeLoader();
 
   return (
     <footer>
-      <div class="container">
-        <a href="https://www.builder.io/" target="_blank" class={styles.anchor}>
-          <span>Made with ♡ by Builder.io</span>
+      <div class="container flex justify-center">
+        <Link class="text-white" href="/">
+          <span class="mr-2">Made with ♡ by Alex Grande</span>
           <span class={styles.spacer}>|</span>
-          <span>{serverTime.value.date}</span>
-        </a>
+          <span>{serverTime.value.date}😆</span>      
+        </Link>
       </div>
     </footer>
   );

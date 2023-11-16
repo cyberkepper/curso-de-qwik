@@ -1,3 +1,7 @@
 {
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "emojisense.unicodeCompletionsEnabled": true,
+	"emojisense.markupCompletionsEnabled": true,
+	"emojisense.showOnColon": true,
+	"emojisense.emojiDecoratorsEnabled": true,
 }
