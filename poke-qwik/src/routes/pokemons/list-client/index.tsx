@@ -1,22 +1,25 @@
-import { component$, useOnDocument, useStore, useTask$, useVisibleTask$, $ } from '@builder.io/qwik';
+import { component$, useOnDocument, useStore, useTask$, useVisibleTask$, $, useContext } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 import type { SmallPokemon } from '~/interfaces';
 import { PokemonImage } from '~/components/pokemons/pokemon-image';
 import { getSmallPokemons } from '~/helpers/get-small-pokemons';
+import { PokemonListContext } from '~/context';
 
-interface PokemonPageState {
-    currentPage: number;
-    pokemons: SmallPokemon[];  
-    isLoading?: boolean; 
-}
+// interface PokemonPageState {
+//     currentPage: number;
+//     pokemons: SmallPokemon[];  
+//     isLoading?: boolean; 
+// }
 
 export default component$(() => {   
 
-    const pokemonState = useStore<PokemonPageState>({
-        currentPage: 0,
-        pokemons: [],
-        isLoading: false,
-    })
+    const pokemonState = useContext(PokemonListContext);
+    // const pokemonState = useStore<PokemonPageState>({
+    //     currentPage: 0,
+    //     pokemons: [],
+    //     isLoading: false,
+    // })
+
 
     // se ejecuta del lado del servidor y del lado del cliente
     useTask$(async ({track}) => {
@@ -48,20 +51,20 @@ export default component$(() => {
     return (
         <>
           <div class="flex flex-col">
-            <span class="my-5 text-5xl">Status</span>
+            <span class="my-5 text-5xl">Pokemons</span>
             <span>Pagina actual: {pokemonState.currentPage}</span>
          
           </div>
     
-          <div class="mt-10">
-            {/* <button onClick$={() => pokemonState.currentPage--} class="btn btn-primary mr-2">
+          {/* <div class="mt-10">
+            <button onClick$={() => pokemonState.currentPage--} class="btn btn-primary mr-2">
               Anteriores
-            </button> */}
+            </button> 
     
             <button onClick$={() => pokemonState.currentPage++} class="btn btn-primary mr-2">
               Siguientes
-            </button>
-          </div>
+            </button> 
+          </div> */}
     
           <div class="grid sm:grid-cols-2 md:grid-cols-5 xl:grid-cols-7 mt-5">
             {
